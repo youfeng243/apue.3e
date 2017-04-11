@@ -30,9 +30,19 @@ do_line(char *ptr)        /* process one line of input */
             case TOK_ADD:
                 cmd_add();
                 break;
+            default:
+                break;
         }
     }
 }
+
+
+int
+get_token(void) {
+    /* fetch next token from line pointed to by tok_ptr */
+    return 0;
+}
+
 
 void
 cmd_add(void) {
@@ -40,9 +50,4 @@ cmd_add(void) {
 
     token = get_token();
     /* rest of processing for this command */
-}
-
-int
-get_token(void) {
-    /* fetch next token from line pointed to by tok_ptr */
 }
