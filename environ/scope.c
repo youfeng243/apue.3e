@@ -4,9 +4,7 @@ f1(int val) {
     int *ptr = &num;
 
     if (val == 0) {
-        int val;
-
-        val = 5;
+        int val = 5;
         ptr = &val;
     }
     return (*ptr + 1);
