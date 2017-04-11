@@ -29,8 +29,7 @@ helper(void *arg) {
 
     for (;;) {
         memset(&tip->m, 0, sizeof(struct mymsg));
-        if ((n = msgrcv(tip->qid, &tip->m, MAXMSZ, 0,
-                        MSG_NOERROR)) < 0)
+        if ((n = msgrcv(tip->qid, &tip->m, MAXMSZ, 0, MSG_NOERROR)) < 0)
             err_sys("msgrcv error");
         tip->len = n;
         pthread_mutex_lock(&tip->mutex);
