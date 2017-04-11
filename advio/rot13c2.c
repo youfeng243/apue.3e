@@ -26,6 +26,17 @@ unsigned char
 translate(unsigned char c)
 {
 	/* same as before */
+	if (isalpha(c)) {
+		if (c >= 'n')
+			c -= 13;
+		else if (c >= 'a')
+			c += 13;
+		else if (c >= 'N')
+			c -= 13;
+		else
+			c += 13;
+	}
+	return(c);
 }
 
 int
