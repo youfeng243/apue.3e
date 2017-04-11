@@ -30,6 +30,8 @@ do_line(char *ptr)        /* process one line of input */
             case TOK_ADD:
                 cmd_add();
                 break;
+            default:
+                break;
         }
     }
 }
