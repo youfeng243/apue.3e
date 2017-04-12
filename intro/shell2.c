@@ -1,5 +1,4 @@
 #include "apue.h"
-#include <sys/wait.h>
 
 static void sig_int(int);        /* our signal-catching function */
 
@@ -14,6 +13,11 @@ main(void) {
 
     printf("%% ");    /* print prompt (printf requires %% to print %) */
     while (fgets(buf, MAXLINE, stdin) != NULL) {
+        size_t length = strlen(buf);
+        if (length <= 1) {
+            printf("%% ");
+            continue;
+        }
         if (buf[strlen(buf) - 1] == '\n')
             buf[strlen(buf) - 1] = 0; /* replace newline with null */
 
@@ -28,6 +32,7 @@ main(void) {
         /* parent */
         if ((pid = waitpid(pid, &status, 0)) < 0)
             err_sys("waitpid error");
+        printf("%d\n", pid);
         printf("%% ");
     }
     exit(0);
